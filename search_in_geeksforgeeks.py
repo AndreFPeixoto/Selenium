@@ -3,14 +3,12 @@
 # Imports
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.firefox.service import Service
 from selenium.webdriver.common.action_chains import ActionChains
 
 # Setup configurations
-PATH = "C:\Driver\chromedriver.exe"
-chrome_options = Options()
-chrome_options.add_experimental_option("detach", True)
-driver = webdriver.Chrome(PATH, chrome_options=chrome_options)
+service = Service(log_path='nul')
+driver = webdriver.Firefox(service=service)
 driver.get("https://www.geeksforgeeks.org/")
 action = ActionChains(driver)
 
