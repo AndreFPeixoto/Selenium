@@ -1,4 +1,6 @@
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+
 
 class ActionsLab:
     url = "http://the-internet.herokuapp.com"
@@ -28,7 +30,8 @@ class ActionsLab:
 
     def test_double_click(self):
         self.driver.get(ActionsLab.url + "/tables")
-        element = self.driver.find_element(By.XPATH, "//div[@class='example']/h3[1]")
+        element = self.driver.find_element(
+            By.XPATH, "//div[@class='example']/h3[1]")
         self.action.double_click(on_element=element)
         self.action.perform()
 
@@ -37,4 +40,19 @@ class ActionsLab:
         source_element = self.driver.find_element(By.ID, "column-a")
         dest_element = self.driver.find_element(By.ID, "column-b")
         self.action.drag_and_drop(source_element, dest_element)
+        self.action.perform()
+
+    def test_key_down(self):
+        self.driver.get(ActionsLab.url + "/key_presses")
+        self.action.key_down(Keys.ENTER)
+        self.action.perform()
+
+    def test_send_keys(self):
+        self.driver.get(ActionsLab.url + "/login")
+        username_input = self.driver.find_element(By.ID, "username")
+        password_input = self.driver.find_element(By.ID, "password")
+        login_button = self.driver.find_element(By.TAG_NAME, "button")
+        username_input.send_keys("tomsmith")
+        password_input.send_keys("SuperSecretPassword!")
+        self.action.click(on_element=login_button)
         self.action.perform()

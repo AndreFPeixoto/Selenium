@@ -14,11 +14,13 @@ action = ActionChains(driver)
 
 # Locate elements
 search_location = "//div[@class='ant-col']/div[@class='ant-row ant-row-center gfg_home_page_search_input']/span/span/"
-search_input = driver.find_element(By.XPATH, search_location + "span[@class='ant-input-affix-wrapper ant-input-affix-wrapper-lg']/input")
-search_button = driver.find_element(By.XPATH, search_location + "span[@class='ant-input-group-addon']/button")
+search_input = driver.find_element(
+    By.XPATH, search_location + "span[@class='ant-input-affix-wrapper ant-input-affix-wrapper-lg']/input")
+search_button = driver.find_element(
+    By.XPATH, search_location + "span[@class='ant-input-group-addon']/button")
 
 # Perform action -> Search in Geeks for Geeks
 query = "Ansible"
 search_input.send_keys(query)
-action.click(on_element = search_button)
+action.click(on_element=search_button)
 action.perform()

@@ -5,7 +5,7 @@ from selenium.webdriver.firefox.service import Service
 from selenium.webdriver.common.action_chains import ActionChains
 
 # Setup configurations
-service = Service(log_path='nul') # No logs
+service = Service(log_path='nul')  # No logs
 driver = webdriver.Firefox(service=service)
 action = ActionChains(driver)
 driver.get("http://127.0.0.1:5500/html/selector_lab.html")
