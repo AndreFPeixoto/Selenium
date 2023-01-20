@@ -9,4 +9,13 @@ from selenium.webdriver.common.action_chains import ActionChains
 service = Service(log_path='nul')  # No logs
 driver = webdriver.Firefox(service=service)
 action = ActionChains(driver)
-driver.get("https://google.com")
+driver.get("http://the-internet.herokuapp.com/")
+
+print(driver.current_url)
+
+driver.get("http://the-internet.herokuapp.com/abtest")
+print(driver.current_url)
+
+driver.back() # Sometimes does not work
+#driver.execute_script("window.history.go(-1)")
+driver.forward()
