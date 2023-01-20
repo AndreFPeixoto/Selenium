@@ -16,6 +16,6 @@ print(driver.current_url)
 driver.get("http://the-internet.herokuapp.com/abtest")
 print(driver.current_url)
 
-driver.back() # Sometimes does not work
-#driver.execute_script("window.history.go(-1)")
+driver.back()  # Sometimes does not work
+# driver.execute_script("window.history.go(-1)")
 driver.forward()
